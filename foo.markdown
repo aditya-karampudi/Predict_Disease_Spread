@@ -1,6 +1,3 @@
-# Predict_Disease_Spread
-Predict the number of dengue fever cases reported each week in two cities (San Juan and Iquitos)
-
 This git contains the solution for the step-by-step implementation in
 solving the assignment for Data Science Programming course at USF.
 
@@ -323,4 +320,3 @@ class distribution. Accuracy works best if false positives and false
 negatives have similar cost. If the cost of false positives and false
 negatives are very different, it's better to look at both Precision and
 Recall.
-
