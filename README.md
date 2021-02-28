@@ -1,6 +1,3 @@
-# Predict_Disease_Spread
-Predict the number of dengue fever cases reported each week in two cities (San Juan and Iquitos)
-
 This git contains the solution for the step-by-step implementation in
 solving the assignment for Data Science Programming course at USF.
 
@@ -88,14 +85,14 @@ scale) measurements**
 
 **Assignment**
 
-1.  Load the file \'dengue\_features\_train.csv\', display the top 3
+1.  **Load the file \'dengue\_features\_train.csv\', display the top 3
     rows and observe the data. Then programmatically define the column
-    names to make the following changes.
+    names to make the following changes.**
 
-2.  The predictor column (y-value) is present in the file
+2.  **The predictor column (y-value) is present in the file
     \'dengue\_labels\_train.csv\'. Read this file in a new dataframe and
     merge it with the above dataframe using city, year and weekofyear as
-    join conditions.
+    join conditions.**
 
     ![](media/image1.png){width="5.488888888888889in"
     height="2.09375in"}
@@ -106,13 +103,13 @@ scale) measurements**
     between 30-50^th^ week of the year. This looks normal and is left
     skewed.
 
-3.  Preprocess the data (Encode the categorical features and Standardize
-    the numerical features)
+3.  **Preprocess the data (Encode the categorical features and
+    Standardize the numerical features)**
 
-4.  Build a stochastic gradient descent regressor, train the model
+4.  **Build a stochastic gradient descent regressor, train the model**
     ![](media/image2.png){width="4.588888888888889in"
-    height="1.6055555555555556in"}and List the hyper-parameters that can
-    be tuned in SGD.
+    height="1.6055555555555556in"}**and List the hyper-parameters that
+    can be tuned in SGD.**
 
 The Parameters that can be tuned for SGD are:
 
@@ -132,8 +129,8 @@ The Parameters that can be tuned for SGD are:
     co-efficient
 
 5.  ![](media/image3.png){width="7.08125in"
-    height="2.7868055555555555in"}Plot Learning curve and provide
-    insights
+    height="2.7868055555555555in"}**Plot Learning curve and provide
+    insights**
 
 -   We can see that error remained constant for training and test set
     when the number of iterations are 200. From this we can conlude that
@@ -148,8 +145,8 @@ The Parameters that can be tuned for SGD are:
     down or up with increase in rows. Also, upto 40 iterations are
     enough to get to a steady train and test error.
 
-6.  List which features you will choose in this model. Select the
-    required columns in the dataframe and drop the others.
+6.  **List which features you will choose in this model. Select the
+    required columns in the dataframe and drop the others.**
 
 -   When two attributes give information about the same thing then they
     are duplicates and these might trick our model in terms of rule
@@ -168,102 +165,99 @@ The Parameters that can be tuned for SGD are:
     re\_an\_specific\_hd\_g\_per\_kg. This says that the pressure is
     highly dependent on temparature. Hence droppping the pressure
 
-7.  Build a Linear SVR regressor, train the model and evaluate on a
-    metric, list hyper-parameters and plot learning curve.
+7.  **Build a Linear SVR regressor, train the model and evaluate on a
+    metric, list hyper-parameters and plot learning curve.**
 
-    a.  I chose RMSE error (Root Mean Square Error). It is measure on
-        how far from the regression line the data points are. THe RMSE
-        error gives low weightage to points around the best fit line and
-        high weightage to points farther from the line. It basically
-        tells us how concentrated the data is arounf the line of best
-        fit. The high error on train and low on test says that the model
-        is under fitting and we can increase its complexity.
+-   I chose RMSE error (Root Mean Square Error). It is measure on how
+    far from the regression line the data points are. THe RMSE error
+    gives low weightage to points around the best fit line and high
+    weightage to points farther from the line. It basically tells us how
+    concentrated the data is arounf the line of best fit. The high error
+    on train and low on test says that the model is under fitting and we
+    can increase its complexity.
 
-    b.  The Linear SVR is similar to the Traditional SVR but it supports
-        only linear kernel and is implemented in terms of liblinear
-        rather than libsvm.
+-   The Linear SVR is similar to the Traditional SVR but it supports
+    only linear kernel and is implemented in terms of liblinear rather
+    than libsvm.
 
-    c.  There are two main parameters to tune in the Linear version of
-        SVR:
+-   There are two main parameters to tune in the Linear version of SVR:
 
-        i.  The choice of penalties - The penality is represented by C.
-            This is the amount of influence slack variables has on the
-            function. Slack variable is the non-linear points which are
-            tough to classify. Hence, we will ignore these points. The C
-            is the way of saying how much to ignore. With high C value
-            the models puts penalities on the slack points and hence
-            creates an over-complicated one.
+    -   The choice of penalties - The penality is represented by C. This
+        is the amount of influence slack variables has on the function.
+        Slack variable is the non-linear points which are tough to
+        classify. Hence, we will ignore these points. The C is the way
+        of saying how much to ignore. With high C value the models puts
+        penalities on the slack points and hence creates an
+        over-complicated one.
 
-        ii. Loss functions- The Lasso (L1) loss function is the standard
-            way of entering the value in Linear SVR. By setting loss as
-            epsilon insensitive we are saying it to start with L1
-            regularization and with epsilon of 0.3 I got least error
+    -   Loss functions- The Lasso (L1) loss function is the standard way
+        of entering the value in Linear SVR. By setting loss as epsilon
+        insensitive we are saying it to start with L1 regularization and
+        with epsilon of 0.3 I got least error
 
-    d.  ![](media/image4.png){width="3.452777777777778in"
-        height="2.484722222222222in"}From the learning curve we can see
-        that the error in train and test samples has stabilized after
-        150 samples. But as this is a linear kernel, it was not able to
-        reduce the error further and with increase in the sample size
-        the model did not learn much
+-   ![](media/image4.png){width="3.452777777777778in"
+    height="2.484722222222222in"}From the learning curve we can see that
+    the error in train and test samples has stabilized after 150
+    samples. But as this is a linear kernel, it was not able to reduce
+    the error further and with increase in the sample size the model did
+    not learn much
 
-8.  Build a SVR model with Linear Kernel, train the model, evaluate and
-    print the tuning parameters and plot learning curve to provide
-    insights
+8.  **Build a SVR model with Linear Kernel, train the model, evaluate
+    and print the tuning parameters and plot learning curve to provide
+    insights**
 
-    e.  I chose RMSE error (Root Mean Square Error). It is measure on
-        how far from the regression line the data points are. THe RMSE
-        error gives low weightage to points around the best fit line and
-        high weightage to points farther from the line. It basically
-        tells us how concentrated the data is arounf the line of best
-        fit
+-   I chose RMSE error (Root Mean Square Error). It is measure on how
+    far from the regression line the data points are. THe RMSE error
+    gives low weightage to points around the best fit line and high
+    weightage to points farther from the line. It basically tells us how
+    concentrated the data is arounf the line of best fit
 
-    f.  There are mainly Three parameters that can be tweaked to improve
-        the performance of model
+-   There are mainly Three parameters that can be tweaked to improve the
+    performance of model
 
-        iii. C- Regularization Parameter - The Cost function on the
-            slack variable. This controls the train error and test error
-            relationship. To have a highly fitted model C value should
-            be high
+    -   C- Regularization Parameter - The Cost function on the slack
+        variable. This controls the train error and test error
+        relationship. To have a highly fitted model C value should be
+        high
 
-        iv. gamma- The kernel co-efficient for Non-linear functions. The
-            degree to which we can use the kernel, it is used to set the
-            amount of N dimensions we can throw data and a complexity
-            manager for kernel
+    -   gamma- The kernel co-efficient for Non-linear functions. The
+        degree to which we can use the kernel, it is used to set the
+        amount of N dimensions we can throw data and a complexity
+        manager for kernel
 
-        v.  Kernel - The type of Kernel for creating the hyperplane.
-            This is the kernel matrix or kernel trick. There are
-            different kernels A linear kernel throws the data in N
-            dimensions and plots a linear curve, The Polynomial kernel
-            increases the complexity and plots a curved hyperplane,
-            Radial and hyperbolic ca learn any complex patterns.
+    -   Kernel - The type of Kernel for creating the hyperplane. This is
+        the kernel matrix or kernel trick. There are different kernels A
+        linear kernel throws the data in N dimensions and plots a linear
+        curve, The Polynomial kernel increases the complexity and plots
+        a curved hyperplane, Radial and hyperbolic ca learn any complex
+        patterns.
 
-        vi. The Learning curve of Linear SVM with kernel is similar to
-            the linear SVR, as these two are build from the same
-            concepts. It is expected to have same output. The only
-            difference I noticed is the time taken to perform training.
-            The Linear SVR took very less time when comoared to the SVR
-            with Kernel. Apart from it the information is same as above.
-            Stabilizing after 150 samples
+    -   The Learning curve of Linear SVM with kernel is similar to the
+        linear SVR, as these two are build from the same concepts. It is
+        expected to have same output. The only difference I noticed is
+        the time taken to perform training. The Linear SVR took very
+        less time when comoared to the SVR with Kernel. Apart from it
+        the information is same as above. Stabilizing after 150 samples
 
-            ![](media/image5.png){width="3.7375in"
-            height="2.5305555555555554in"}
+        ![](media/image5.png){width="3.7375in"
+        height="2.5305555555555554in"}
 
-9.  Add a new column called \'above\_average\' with value 1 or 0. 1 if
+9.  **Add a new column called \'above\_average\' with value 1 or 0. 1 if
     the total\_cases \> median of total\_case and create an MLP
     classifier and explain the meaning of Precision, Recall and F1-Score
     and why these are used to evaluate Classification models (instead of
     using Accuracy as a metric). Evaluate the classifier using
-    Precision, Recall and F1 score values
+    Precision, Recall and F1 score values**
 
-    g.  As the dataset is balanced we can rely on the accuracy as metric
+    a.  As the dataset is balanced we can rely on the accuracy as metric
         for evaluation.
 
-    h.  Along with that I believe False Negative score(Recall) is
+    b.  Along with that I believe False Negative score(Recall) is
         important. Because saying a city as having less number of cases
         is more dangerous than predicting a city as having more number
         of cases
 
-    i.  Cause I think if the model predicts correctly about the city
+    c.  Cause I think if the model predicts correctly about the city
         having high number of cases then the medical team can be prepare
         well. But if the city having high number of cases is predicted
         by model as less than average then the mdical team might not
