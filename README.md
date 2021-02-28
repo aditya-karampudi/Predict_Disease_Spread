@@ -94,8 +94,7 @@ scale) measurements**
     merge it with the above dataframe using city, year and weekofyear as
     join conditions.**
 
-    ![](media/image1.png){width="5.488888888888889in"
-    height="2.09375in"}
+    ![](media/image1.png) 
 
 -   The plot has week number on the x-axis and the total number of
     dengue cases on y-axis. It is clear that the number of cases have
@@ -106,10 +105,9 @@ scale) measurements**
 3.  **Preprocess the data (Encode the categorical features and
     Standardize the numerical features)**
 
-4.  **Build a stochastic gradient descent regressor, train the model**
-    ![](media/image2.png){width="4.588888888888889in"
-    height="1.6055555555555556in"}**and List the hyper-parameters that
-    can be tuned in SGD.**
+4.  **Build a stochastic gradient descent regressor, train the model and 	List the hyper-parameters that can be tuned in SGD.**
+
+    ![](media/image2.png) 
 
 The Parameters that can be tuned for SGD are:
 
@@ -128,9 +126,9 @@ The Parameters that can be tuned for SGD are:
 -   max\_iter- The number of iterations to update the final new
     co-efficient
 
-5.  ![](media/image3.png){width="7.08125in"
-    height="2.7868055555555555in"}**Plot Learning curve and provide
-    insights**
+5.  ![](media/image3.png) 
+
+**Plot Learning curve and provide insights**
 
 -   We can see that error remained constant for training and test set
     when the number of iterations are 200. From this we can conlude that
@@ -195,8 +193,7 @@ The Parameters that can be tuned for SGD are:
         insensitive we are saying it to start with L1 regularization and
         with epsilon of 0.3 I got least error
 
--   ![](media/image4.png){width="3.452777777777778in"
-    height="2.484722222222222in"}From the learning curve we can see that
+-   ![](media/image4.png)  From the learning curve we can see that
     the error in train and test samples has stabilized after 150
     samples. But as this is a linear kernel, it was not able to reduce
     the error further and with increase in the sample size the model did
@@ -239,8 +236,7 @@ The Parameters that can be tuned for SGD are:
         less time when comoared to the SVR with Kernel. Apart from it
         the information is same as above. Stabilizing after 150 samples
 
-        ![](media/image5.png){width="3.7375in"
-        height="2.5305555555555554in"}
+        ![](media/image5.png)
 
 9.  **Add a new column called \'above\_average\' with value 1 or 0. 1 if
     the total\_cases \> median of total\_case and create an MLP
